@@ -1,0 +1,26 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: QuayEcosystem
+metadata:
+  name: quay
+  namespace: quay
+spec:
+  clair:
+    enabled: true
+    imagePullSecretName: redhat-pull-secret
+  quay:
+    deploymentStrategy: Recreate
+    externalAccess:
+      hostname: quay.apps.aws4demo10.mlessard-cloud.com
+      tls:
+        termination: edge
+    imagePullSecretName: redhat-pull-secret
+    keepConfigDeployment: true
+    skipSetup: false
+    registryBackends:
+      - name: nooba 
+        rhocs:
+          hostname: s3-openshift-storage.apps.aws4demo10.mlessard-cloud.com
+          secure: true 
+          accessKey: YAtMHe586VHsiLpvsQn
+          secretKey: mIAv8y5urWpQJcE7TQOZiYznPCjoLO6hBAkygG
+          bucketName: quay
