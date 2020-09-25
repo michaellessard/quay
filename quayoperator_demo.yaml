@@ -7,7 +7,11 @@ spec:
   clair:
     enabled: true
     imagePullSecretName: redhat-pull-secret
+    database:
+      volumeSize: 10Gi
   quay:
+    database:
+      volumeSize: 10Gi
     deploymentStrategy: Recreate
     externalAccess:
       hostname: quay.apps.aws4demo10.mlessard-cloud.com
