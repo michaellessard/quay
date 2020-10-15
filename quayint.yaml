@@ -1,0 +1,9 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: QuayIntegration
+metadata:
+  name: mgmt-quayintegration
+spec:
+  clusterID: openshift
+  credentialsSecretName: openshift-operators/quay-integration
+  quayHostname: https://quay.apps.openshift.rhcasalab.com/
+  insecureRegistry: true 
